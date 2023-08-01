@@ -10,7 +10,7 @@ pipeline{
         stage('SCM'){
             steps{
                 git credentialsId: 'github', 
-                    url: 'https://github.com/javahometech/dockeransiblejenkins'
+                    url: 'https://github.com/KeerthanaPonnaiyan/dockeransiblejenkins.git'
             }
         }
         
@@ -29,7 +29,7 @@ pipeline{
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u kammana -p ${dockerHubPwd}"
+                    sh "docker login -u phriya -p ${dockerHubPwd}"
                 }
                 
                 sh "docker push kammana/hariapp:${DOCKER_TAG} "
