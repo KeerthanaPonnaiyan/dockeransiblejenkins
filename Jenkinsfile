@@ -22,7 +22,7 @@ pipeline{
         
         stage('Docker Build'){
             steps{
-                sh 'docker build -t phriya/dockeransible:${DOCKER_TAG} /var/lib/jenkins/workspace/jenkins/target'
+                sh 'docker build -t phriya/dockeransible:${DOCKER_TAG} .'
             }
         }
         
